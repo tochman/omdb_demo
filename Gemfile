@@ -14,6 +14,7 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'rest-client'
 
 group :development, :test do
+  gem 'webmock'
   gem 'coveralls', require: false
   gem 'pry-rails'
   gem 'pry-byebug'
