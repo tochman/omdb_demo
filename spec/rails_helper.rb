@@ -1,5 +1,7 @@
 require 'coveralls'
 Coveralls.wear_merged!('rails')
+require "webmock/rspec"
+WebMock.enable!
 
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
@@ -19,4 +21,11 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   config.include FactoryBot::Syntax::Methods
   config.include(Shoulda::Matchers::ActiveRecord, type: :model)
+  config.before do
+    stub_request(:get, "https://api.themoviedb.org/3/search/movie?api_key=80089a9e6edb5f524156c569cd8a9a69&query=Star%20wars")
+      .to_return(status: 200, body: file_fixture("moviedb_search_movie_response.json").read, headers: {})
+
+    stub_request(:get, "https://api.themoviedb.org/3/search/movie?api_key=80089a9e6edb5f524156c569cd8a9a69&query=sdrhiugreljreajipvbavrsipjiafewpiub")
+      .to_return(status: 200, body: file_fixture("moviedb_search_movie_no_results.json").read, headers: {})
+  end
 end

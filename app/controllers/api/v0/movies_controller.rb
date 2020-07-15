@@ -1,8 +1,14 @@
 class Api::V0::MoviesController < ApplicationController
   def index
-    api_endpoint = 'http://www.omdbapi.com/?i=tt3896198&apikey=36ecbc39'
-    search_string = 'A New Hope'
-    results = RestClient.get(api_endpoint + "&s=#{search_string}")
-    render json: JSON.parse(results.body)
+    api_endpoint = "https://api.themoviedb.org/3/search/movie?api_key=80089a9e6edb5f524156c569cd8a9a69"
+    search_string = params[:query]
+    results = RestClient.get(api_endpoint + "&query=#{search_string}")
+    movies = JSON.parse(results.body)
+    
+    if movies["results"].empty?
+      render json: { message: "No results found" }, status: 404
+    else
+      render json: { results: movies["results"] }
+    end
   end
 end
