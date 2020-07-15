@@ -13,6 +13,7 @@ gem 'puma', '~> 3.12'
 gem 'rack-cors', require: 'rack/cors'
 gem 'rest-client'
 gem 'devise_token_auth'
+gem 'pundit'
 
 
 group :development, :test do
