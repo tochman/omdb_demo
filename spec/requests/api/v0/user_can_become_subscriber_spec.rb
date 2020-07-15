@@ -5,7 +5,7 @@ RSpec.describe "POST /api/v0/subscriptions", type: :request do
     let(:user_headers) { { HTTP_ACCEPT: 'application/json'}.merge!(user_credentials) }
   
     before do
-      post "api/v0/subscriptions", 
+      post "/api/v0/subscriptions", 
         params: {
           stripeToken: "1234"
         },

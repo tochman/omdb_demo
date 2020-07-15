@@ -45,7 +45,7 @@ RSpec.describe 'POST /api/v0/watchlist_items', type: :request do
       end
   
       it 'returns an error message' do
-        expect(JSON.parse(response.body)["message"]).to eq 'You need to become a subscriber fore you can add anything to your watchlist'
+        expect(JSON.parse(response.body)["message"]).to eq 'You need to become a subscriber before you can add anything to your watchlist'
       end
     end
   end

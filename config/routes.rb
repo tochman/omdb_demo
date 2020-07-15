@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :movies, only: :index
       resources :pings, only: [:index], constraints: { format: 'json' }
       resources :watchlist_items, only: [:create], constraints: { format: 'json' }
+      resources :subscriptions, only: [:create], constraints: { format: 'json' }
     end
   end
 end
