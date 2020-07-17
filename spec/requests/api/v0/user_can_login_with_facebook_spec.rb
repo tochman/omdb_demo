@@ -1,4 +1,4 @@
-RSpec.describe 'POST /api/v0/auth/sign_in', type: :request do
+RSpec.describe 'POST /api/v0/auth', type: :request do
   describe 'successfully' do
     before do
       post '/api/v0/auth',
