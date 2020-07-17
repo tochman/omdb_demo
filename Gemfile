@@ -14,6 +14,7 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'rest-client'
 gem 'devise_token_auth'
 gem 'stripe-rails'
+gem 'pundit'
 
 
 group :development, :test do
