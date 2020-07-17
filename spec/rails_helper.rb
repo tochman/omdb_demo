@@ -28,4 +28,11 @@ RSpec.configure do |config|
     stub_request(:get, "https://api.themoviedb.org/3/search/movie?api_key=80089a9e6edb5f524156c569cd8a9a69&query=sdrhiugreljreajipvbavrsipjiafewpiub")
       .to_return(status: 200, body: file_fixture("moviedb_search_movie_no_results.json").read, headers: {})
   end
+  config.before(:each) do
+    @stripe_test_helper = StripeMock.create_test_helper
+    StripeMock.start
+  end
+  config.after(:each) do
+    StripeMock.stop
+  end
 end

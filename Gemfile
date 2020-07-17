@@ -13,6 +13,7 @@ gem 'puma', '~> 3.12'
 gem 'rack-cors', require: 'rack/cors'
 gem 'rest-client'
 gem 'devise_token_auth'
+gem 'stripe-rails'
 gem 'pundit'
 
 
@@ -24,6 +25,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'factory_bot_rails'
+  gem 'stripe-ruby-mock', '~> 2.5.6', require: 'stripe_mock'
 end
 
 group :development do

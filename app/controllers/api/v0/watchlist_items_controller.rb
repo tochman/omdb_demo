@@ -13,6 +13,6 @@ class Api::V0::WatchlistItemsController < ApplicationController
   private
 
   def user_not_authorized
-    render json: { message: "You need to become a subscriber fore you can add anything to your watchlist" }, status: 401
+    render json: { message: "You need to become a subscriber before you can add anything to your watchlist" }, status: 401
   end
 end
