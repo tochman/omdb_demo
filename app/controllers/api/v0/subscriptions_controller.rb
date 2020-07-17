@@ -4,7 +4,7 @@ class Api::V0::SubscriptionsController < ApplicationController
   def create
     payment_status = perform_stripe_payment
 
-    if payment_status == true 
+    if payment_status[:paid] == true 
       current_user.update_attribute(:subscriber, true)
       render json: { paid: true, message: "Successfull payment, you are now a subscriber" }
     else 

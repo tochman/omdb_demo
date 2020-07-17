@@ -7,7 +7,7 @@ RSpec.describe "POST /api/v0/subscriptions", type: :request do
     before do
       post "/api/v0/subscriptions", 
         params: {
-          stripeToken: "1234"
+          stripeToken: StripeMock.create_test_helper.generate_card_token
         },
         headers: user_headers
     end
