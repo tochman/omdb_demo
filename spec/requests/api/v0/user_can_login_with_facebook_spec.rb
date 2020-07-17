@@ -8,7 +8,7 @@ RSpec.describe 'POST /api/v0/auth/sign_in', type: :request do
         provider: 'facebook'
       }
 
-      @response_json = JSON.pase(response.body)
+      @response_json = JSON.parse(response.body)
     end
 
     it 'is expected to return 200 response status' do

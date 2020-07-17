@@ -12,6 +12,13 @@ class User < ActiveRecord::Base
 
   private 
 
+  def self.from_omniauth(uid, email, provider)
+    where(uid: uid, provider: provider, email: email).first_or_create do |user|
+      user.email = email
+      user.password = Devise.friendly_token[0,20]
+    end
+  end
+
   def create_watchlist
     Watchlist.create(user_id: id)
   end
