@@ -8,7 +8,7 @@ class Api::V0::SubscriptionsController < ApplicationController
       current_user.update_attribute(:subscriber, true)
       render json: { paid: true, message: "Successfull payment, you are now a subscriber" }
     else 
-      binding.pry
+      render json: { paid: false, message: "Payment did not go through"}, status: 400
     end
   end
 
